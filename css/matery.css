@@ -48,6 +48,13 @@ h1 {
     line-height: 2.0rem;
 }
 
+h2::before{
+  content: "✔";
+  font-weight: bold;
+  color: #ffb11b;
+  margin-right: 4px
+}
+
 h2 {
     margin: 42px 0 18px -5px;
     font-size: 1.8rem;
