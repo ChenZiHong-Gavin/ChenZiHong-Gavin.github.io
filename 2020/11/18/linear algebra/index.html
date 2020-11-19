@@ -508,7 +508,29 @@
 <li><a href="#矩阵的特征值与特征向量">矩阵的特征值与特征向量</a></li>
 </ul>
 <!-- tocstop -->
-<h2><span id="二阶-三阶与n阶行列式">二阶、三阶与n阶行列式</span></h2><h3><span id="什么是行列式">什么是行列式</span></h3><h3><span id="二阶行列式">二阶行列式</span></h3><h3><span id="三阶行列式">三阶行列式</span></h3><h3><span id="n阶行列式">n阶行列式</span></h3><h2><span id="矩阵">矩阵</span></h2><h3><span id="矩阵的几何运算">矩阵的几何运算</span></h3><h3><span id="初等变换">初等变换</span></h3><h3><span id="可逆矩阵">可逆矩阵</span></h3><h2><span id="向量">向量</span></h2><h2><span id="线性方程组解的结构">线性方程组解的结构</span></h2><h2><span id="矩阵的特征值与特征向量">矩阵的特征值与特征向量</span></h2><script type="math/tex; mode=display">
+<h2><span id="二阶-三阶与n阶行列式">二阶、三阶与n阶行列式</span></h2><h3><span id="什么是行列式">什么是行列式</span></h3><p>​    行列式是一种非常有用的数学工具，是线性代数的一个基本内容。</p>
+<h3><span id="二阶行列式">二阶行列式</span></h3><blockquote>
+<p>定义1.1.1</p>
+<p>将四个可以进行乘法和加法运算的元素a,b,c,d排成两行两列：</p>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+a&b \\
+c&d
+\end{vmatrix}
+=ad-bc</script><p>称为二阶行列式。</p>
+</blockquote>
+<p>​    二阶行列式事实上是一个算式，即左上角与右下角的元素相乘后减去右上角与左下角的元素相乘。</p>
+<p>​    对于二元一次方程组：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+a_{11}x_1+a_{12}x_2=b_1 \\
+a_{21}x_1+a_{22}x_2=b_2
+\end{cases}</script><p>​    有解：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x_1=(b_1a_{22}-b_2a_{11})/(a_{11}a_{22}-a_{12}a_{21}) \\
+x_2=(b_2a_{11}-b_1a_{21})/(a_{11}a_{22}-a_{12}a_{21})
+\end{cases}</script><h3><span id="三阶行列式">三阶行列式</span></h3><h3><span id="n阶行列式">n阶行列式</span></h3><h2><span id="矩阵">矩阵</span></h2><h3><span id="矩阵的几何运算">矩阵的几何运算</span></h3><h3><span id="初等变换">初等变换</span></h3><h3><span id="可逆矩阵">可逆矩阵</span></h3><h2><span id="向量">向量</span></h2><h2><span id="线性方程组解的结构">线性方程组解的结构</span></h2><h2><span id="矩阵的特征值与特征向量">矩阵的特征值与特征向量</span></h2><script type="math/tex; mode=display">
 \begin{matrix}
 0&1&2 \\
 1&2&3
