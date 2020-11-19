@@ -501,9 +501,16 @@
 <li><a href="#矩阵的几何运算">矩阵的几何运算</a></li>
 <li><a href="#初等变换">初等变换</a></li>
 <li><a href="#可逆矩阵">可逆矩阵</a></li>
+<li><a href="#矩阵的秩">矩阵的秩</a></li>
 </ul>
 </li>
-<li><a href="#向量">向量</a></li>
+<li><a href="#向量">向量</a><ul>
+<li><a href="#向量组的等价">向量组的等价</a></li>
+<li><a href="#线性相关与线性无关">线性相关与线性无关</a></li>
+<li><a href="#线性相关性与矩阵秩的关系">线性相关性与矩阵秩的关系</a></li>
+<li><a href="#极大无关组与向量组的秩">极大无关组与向量组的秩</a></li>
+</ul>
+</li>
 <li><a href="#线性方程组解的结构">线性方程组解的结构</a></li>
 <li><a href="#矩阵的特征值与特征向量">矩阵的特征值与特征向量</a></li>
 </ul>
@@ -520,7 +527,8 @@ c&d
 =ad-bc</script><p>称为二阶行列式。</p>
 </blockquote>
 <p>​    二阶行列式事实上是一个算式，即左上角与右下角的元素相乘后减去右上角与左下角的元素相乘。</p>
-<p>​    对于二元一次方程组：</p>
+<hr>
+<p>​    对于二元一次方程组（方程组1.1）：</p>
 <script type="math/tex; mode=display">
 \begin{cases}
 a_{11}x_1+a_{12}x_2=b_1 \\
@@ -530,7 +538,164 @@ a_{21}x_1+a_{22}x_2=b_2
 \begin{cases}
 x_1=(b_1a_{22}-b_2a_{11})/(a_{11}a_{22}-a_{12}a_{21}) \\
 x_2=(b_2a_{11}-b_1a_{21})/(a_{11}a_{22}-a_{12}a_{21})
-\end{cases}</script><h3><span id="三阶行列式">三阶行列式</span></h3><h3><span id="n阶行列式">n阶行列式</span></h3><h2><span id="矩阵">矩阵</span></h2><h3><span id="矩阵的几何运算">矩阵的几何运算</span></h3><h3><span id="初等变换">初等变换</span></h3><h3><span id="可逆矩阵">可逆矩阵</span></h3><h2><span id="向量">向量</span></h2><h2><span id="线性方程组解的结构">线性方程组解的结构</span></h2><h2><span id="矩阵的特征值与特征向量">矩阵的特征值与特征向量</span></h2><script type="math/tex; mode=display">
+\end{cases}</script><p>​    记：</p>
+<script type="math/tex; mode=display">
+\Delta=
+\begin{vmatrix}
+a_{11}&a_{12} \\
+a_{21}&a_{22} 
+\end{vmatrix}
+\\
+\Delta_1=
+\begin{vmatrix}
+b_{1}&a_{12} \\
+b_{2}&a_{22} 
+\end{vmatrix}
+\\
+\Delta_2=
+\begin{vmatrix}
+a_{11}&b_{1} \\
+a_{21}&b_{2} 
+\end{vmatrix}</script><p>​    有如下定理：</p>
+<blockquote>
+<p>定理1.1.1</p>
+<p>对方程组1.1有如下结论：</p>
+<p>(1) 若</p>
+<script type="math/tex; mode=display">
+\Delta \neq0</script><p>则方程组（1.1）有唯一的解</p>
+<script type="math/tex; mode=display">
+x_1=\Delta_1/\Delta \\
+x_2=\Delta_2/\Delta</script><p>(2) 若</p>
+<script type="math/tex; mode=display">
+\Delta=0 \\
+\Delta_1，\Delta_2不全为0</script><p>则方程组（1.1）无解</p>
+<p>(3) 若</p>
+<script type="math/tex; mode=display">
+\Delta=\Delta_1=\Delta_2=0</script><p>则方程组（1.1）有无穷多组解</p>
+</blockquote>
+<h3><span id="三阶行列式">三阶行列式</span></h3><blockquote>
+<p>定义1.1.2</p>
+<p>设有9个可以进行乘法和加法的元素排成三行三列，用记号</p>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+a&b&c \\
+d&e&f \\
+g&h&i
+\end{vmatrix}
+=aei-afh-bdi+bgf+cdh-ceg</script><p>表示，并称之为<strong>三阶行列式</strong></p>
+</blockquote>
+<p>​    同样，三阶行列式可以应用于三元一次方程组（方程组1.2）</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+a_{11}x_1+a_{12}x_2+a_{13}x_3=b_1 \\
+a_{21}x_1+a_{22}x_2+a_{23}x_3=b_2 \\
+a_{31}x_1+a_{32}x_2+a_{33}x_3=b_3
+\end{cases}</script><p>​    记：</p>
+<script type="math/tex; mode=display">
+\Delta=
+\begin{vmatrix}
+a_{11}&a_{12}&a_{13} \\
+a_{21}&a_{22}&a_{23} \\
+a_{31}&a_{32}&a_{33}
+\end{vmatrix}        \\
+\Delta_1=
+\begin{vmatrix}
+b_{1}&a_{12}&a_{13} \\
+b_{2}&a_{22}&a_{23} \\
+b_{3}&a_{32}&a_{33}
+\end{vmatrix}       \\
+\Delta_2=
+\begin{vmatrix}
+a_{11}&b_{1}&a_{13} \\
+a_{21}&b_{2}&a_{23} \\
+a_{31}&b_{3}&a_{33}
+\end{vmatrix}        \\
+\Delta_3=
+\begin{vmatrix}
+a_{11}&a_{12}&b_{1} \\
+a_{21}&a_{22}&b_{2} \\
+a_{31}&a_{32}&b_{3}
+\end{vmatrix}</script><p>有定理：</p>
+<blockquote>
+<p>定理1.1.2</p>
+<p>对方程组1.2有如下结论：</p>
+<p>(1) 若</p>
+<script type="math/tex; mode=display">
+\Delta \neq0</script><p>则方程组（1.1）有唯一的解</p>
+<script type="math/tex; mode=display">
+x_1=\Delta_1/\Delta \\x_2=\Delta_2/\Delta \\x_3=\Delta_3/\Delta</script><p>(2) 若</p>
+<script type="math/tex; mode=display">
+\Delta=0 \\\Delta_1，\Delta_2，\Delta_3不全为0</script><p>则方程组（1.2）无解</p>
+<p>(3) 若</p>
+<script type="math/tex; mode=display">
+\Delta=\Delta_1=\Delta_2=0</script><p>则方程组（1.1）可能无解也可能有无穷多组解</p>
+</blockquote>
+<h3><span id="n阶行列式">n阶行列式</span></h3><blockquote>
+<p>定理1.2.1</p>
+<p>行列式与它的转置行列式的值相等</p>
+<p>定理1.2.2</p>
+<p>对调两行（列）的位置，行列式的值相差一个符号</p>
+<p>推论1.2.3</p>
+<p>两行（列）相等的行列式的值为0</p>
+<p>推论1.2.4</p>
+<p>行列式可以按任意一行（列）展开</p>
+<p>定理1.2.5</p>
+<p>行列式任意一行（列）的公因子可以提出到行列式外</p>
+<p>推论1.2.6</p>
+<p>若行列式任意两行（列）对应成比例，则行列式的值为0</p>
+<p>定理1.2.7</p>
+<p>行列式可以拆分成两个行列式的和</p>
+</blockquote>
+<ul>
+<li>n阶范德蒙行列式</li>
+</ul>
+<h2><span id="矩阵">矩阵</span></h2><ul>
+<li>转置矩阵</li>
+<li>方阵的行列式</li>
+</ul>
+<h3><span id="矩阵的几何运算">矩阵的几何运算</span></h3><ul>
+<li><p>加法</p>
+</li>
+<li><p>数乘</p>
+<p>×× 方阵的数乘与行列式</p>
+<script type="math/tex; mode=display">
+若A是n阶方阵，k为任意数，则有\begin{vmatrix}kA\end{vmatrix}=k^n\begin{vmatrix}A\end{vmatrix}</script><p>对于方阵：</p>
+<script type="math/tex; mode=display">
+\begin{vmatrix}AB\end{vmatrix}=\begin{vmatrix}A\end{vmatrix}\begin{vmatrix}B\end{vmatrix}</script></li>
+<li><p>转置矩阵的性质</p>
+</li>
+</ul>
+<h3><span id="初等变换">初等变换</span></h3><p>如果矩阵A经过有限次初等行变换得到矩阵B，称矩阵A和B<strong>行等价</strong></p>
+<p>如果矩阵A经过有限次初等列变换得到矩阵B，称矩阵A和B<strong>列等价</strong></p>
+<p>如果矩阵A经过有限次初等变换变成矩阵B，则称矩阵A和B<strong>等价</strong></p>
+<h3><span id="可逆矩阵">可逆矩阵</span></h3><script type="math/tex; mode=display">
+基本性质：\\
+1.若A可逆，则A^{-1}也可逆 \\
+2.(kA)^{-1}=k^{-1}A^{-1} \\
+3.(A^T)^{-1}=(A^{-1})^T</script><h3><span id="矩阵的秩">矩阵的秩</span></h3><script type="math/tex; mode=display">
+r(A)是A的非零子式的最高阶数字  \\
+0\leq r(A) \leq min \{m,n\} \\
+r(A^T)=r(A) \\
+对于n阶方阵A，有r(A)=n \Leftrightarrow A为满秩矩阵 \Leftrightarrow \begin{vmatrix}A\end{vmatrix}\neq0\Leftrightarrow A非异</script><h2><span id="向量">向量</span></h2><h3><span id="向量组的等价">向量组的等价</span></h3><h3><span id="线性相关与线性无关">线性相关与线性无关</span></h3><ul>
+<li><p>用定义判断</p>
+</li>
+<li><p>用向量之间的关系判断</p>
+<blockquote>
+<p>定理2.7.1</p>
+<script type="math/tex; mode=display">
+向量组A:\alpha_1,\alpha_2,…，\alpha_m线性相关的充要条件是，向量组A中至少有一个向量可以由其他m-1个向量表示</script><p>定理2.7.2</p>
+<script type="math/tex; mode=display">
+设向量组A：\alpha_1,\alpha_2,…，\alpha_r,线性无关，而向量组\alpha_1,\alpha_2,…，\alpha_r,\beta线性相关，\\则向量\beta可由向量组A线性表示，且表示方法唯一。</script></blockquote>
+<h3><span id="线性相关性与矩阵秩的关系">线性相关性与矩阵秩的关系</span></h3><p>r个n维向量，线性相关的充要条件是r(A)&lt;r</p>
+<blockquote>
+<p>推论2.7.4</p>
+<p>向量组的个数m&gt;维度n，则向量组线性相关</p>
+<p>推论2.7.5</p>
+<p>n个n维向量线性无关的充要条件是其行列式不为0</p>
+</blockquote>
+<h3><span id="极大无关组与向量组的秩">极大无关组与向量组的秩</span></h3></li>
+</ul>
+<h2><span id="线性方程组解的结构">线性方程组解的结构</span></h2><h2><span id="矩阵的特征值与特征向量">矩阵的特征值与特征向量</span></h2><script type="math/tex; mode=display">
 \begin{matrix}
 0&1&2 \\
 1&2&3
