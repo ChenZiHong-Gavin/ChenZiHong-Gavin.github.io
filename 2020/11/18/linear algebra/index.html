@@ -520,7 +520,7 @@ c&d
 =ad-bc</script><p>称为二阶行列式。</p>
 </blockquote>
 <p>​    二阶行列式事实上是一个算式，即左上角与右下角的元素相乘后减去右上角与左下角的元素相乘。</p>
-<p>​    对于二元一次方程组：</p>
+<p>​    对于二元一次方程组（方程组1.1）：</p>
 <script type="math/tex; mode=display">
 \begin{cases}
 a_{11}x_1+a_{12}x_2=b_1 \\
@@ -530,7 +530,42 @@ a_{21}x_1+a_{22}x_2=b_2
 \begin{cases}
 x_1=(b_1a_{22}-b_2a_{11})/(a_{11}a_{22}-a_{12}a_{21}) \\
 x_2=(b_2a_{11}-b_1a_{21})/(a_{11}a_{22}-a_{12}a_{21})
-\end{cases}</script><h3><span id="三阶行列式">三阶行列式</span></h3><h3><span id="n阶行列式">n阶行列式</span></h3><h2><span id="矩阵">矩阵</span></h2><h3><span id="矩阵的几何运算">矩阵的几何运算</span></h3><h3><span id="初等变换">初等变换</span></h3><h3><span id="可逆矩阵">可逆矩阵</span></h3><h2><span id="向量">向量</span></h2><h2><span id="线性方程组解的结构">线性方程组解的结构</span></h2><h2><span id="矩阵的特征值与特征向量">矩阵的特征值与特征向量</span></h2><script type="math/tex; mode=display">
+\end{cases}</script><p>​    记：</p>
+<script type="math/tex; mode=display">
+\Delta=
+\begin{vmatrix}
+a_{11}&a_{12} \\
+a_{21}&a_{22} 
+\end{vmatrix}
+\\
+\Delta_1=
+\begin{vmatrix}
+b_{1}&a_{12} \\
+b_{2}&a_{22} 
+\end{vmatrix}
+\\
+\Delta_2=
+\begin{vmatrix}
+a_{11}&b_{1} \\
+a_{21}&b_{2} 
+\end{vmatrix}</script><p>​    有如下定理：</p>
+<blockquote>
+<p>定理1.1.1</p>
+<p>对方程组1.1有如下结论：</p>
+<p>(1) 若</p>
+<script type="math/tex; mode=display">
+\Delta \neq0</script><p>则方程组（1.1）有唯一的解</p>
+<script type="math/tex; mode=display">
+x_1=\Delta_1/\Delta \\
+x_2=\Delta_2/\Delta</script><p>(2) 若</p>
+<script type="math/tex; mode=display">
+\Delta=0 \\
+\Delta_1，\Delta_2不全为0</script><p>则方程组（1.1）无解</p>
+<p>(3) 若</p>
+<script type="math/tex; mode=display">
+\Delta=\Delta_1=\Delta_2=0</script><p>则方程组（1.1）有无穷多组解</p>
+</blockquote>
+<h3><span id="三阶行列式">三阶行列式</span></h3><h3><span id="n阶行列式">n阶行列式</span></h3><h2><span id="矩阵">矩阵</span></h2><h3><span id="矩阵的几何运算">矩阵的几何运算</span></h3><h3><span id="初等变换">初等变换</span></h3><h3><span id="可逆矩阵">可逆矩阵</span></h3><h2><span id="向量">向量</span></h2><h2><span id="线性方程组解的结构">线性方程组解的结构</span></h2><h2><span id="矩阵的特征值与特征向量">矩阵的特征值与特征向量</span></h2><script type="math/tex; mode=display">
 \begin{matrix}
 0&1&2 \\
 1&2&3
