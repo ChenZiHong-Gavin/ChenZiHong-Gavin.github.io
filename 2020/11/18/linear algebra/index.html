@@ -539,8 +539,8 @@ a_{21}x_1+a_{22}x_2=b_2
 \end{cases}</script><p>​    有解：</p>
 <script type="math/tex; mode=display">
 \begin{cases}
-x_1=(b_1a_{22}-b_2a_{11})/(a_{11}a_{22}-a_{12}a_{21}) \\
-x_2=(b_2a_{11}-b_1a_{21})/(a_{11}a_{22}-a_{12}a_{21})
+x_1=\frac{b_1a_{22}-b_2a_{11}}{a_{11}a_{22}-a_{12}a_{21}} \\
+x_2=\frac{b_2a_{11}-b_1a_{21}}{a_{11}a_{22}-a_{12}a_{21}}
 \end{cases}</script><p>​    记：</p>
 <script type="math/tex; mode=display">
 \Delta=
@@ -567,8 +567,8 @@ a_{21}&b_{2}
 <script type="math/tex; mode=display">
 \Delta \neq0</script><p>则方程组（1.1）有唯一的解</p>
 <script type="math/tex; mode=display">
-x_1=\Delta_1/\Delta \\
-x_2=\Delta_2/\Delta</script><p>(2) 若</p>
+x_1=\frac{\Delta_1}\Delta \\
+x_2=\frac{\Delta_2}\Delta</script><p>(2) 若</p>
 <script type="math/tex; mode=display">
 \Delta=0 \\
 \Delta_1，\Delta_2不全为0</script><p>则方程组（1.1）无解</p>
@@ -626,7 +626,7 @@ a_{31}&a_{32}&b_{3}
 <script type="math/tex; mode=display">
 \Delta \neq0</script><p>则方程组（1.1）有唯一的解</p>
 <script type="math/tex; mode=display">
-x_1=\Delta_1/\Delta \\x_2=\Delta_2/\Delta \\x_3=\Delta_3/\Delta</script><p>(2) 若</p>
+x_1=\frac{\Delta_1}\Delta \\x_2=\frac{\Delta_2}\Delta \\x_3=\frac{\Delta_3}\Delta</script><p>(2) 若</p>
 <script type="math/tex; mode=display">
 \Delta=0 \\\Delta_1，\Delta_2，\Delta_3不全为0</script><p>则方程组（1.2）无解</p>
 <p>(3) 若</p>
@@ -705,7 +705,7 @@ r(A^T)=r(A) \\
 </ul>
 <h2><span id="线性方程组解的结构">线性方程组解的结构</span></h2><h2><span id="矩阵的特征值与特征向量">矩阵的特征值与特征向量</span></h2><h3><span id="相似矩阵">相似矩阵</span></h3><blockquote>
 <p>性质1</p>
-<p>若A</p>
+<p>若A~B，则AB行列式相等</p>
 </blockquote>
 
             </div>
@@ -939,47 +939,50 @@ r(A^T)=r(A) \\
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/11/18/linear%20algebra/">
+                <a href="/2020/11/20/math%20formula/">
                     <div class="card-image">
                         
-                        <img src="/medias/postimages/LinearAlgebra.jpg" class="responsive-img" alt="看不完的线性代数">
                         
-                        <span class="card-title">看不完的线性代数</span>
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Markdown之下的数学公式">
+                        
+                        <span class="card-title">Markdown之下的数学公式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这篇文章用以记录学习线性代数的心路历程。
+                            用以整理markdown的数学符号表达。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Algebra/" class="post-category">
-                                    Algebra
+                            <a href="/categories/Beginning/" class="post-category">
+                                    Beginning
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linear-Algebra/">
-                        <span class="chip bg-color">Linear Algebra</span>
+                    <a href="/tags/Algebra/">
+                        <span class="chip bg-color">Algebra</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
                 </div>
@@ -1244,8 +1247,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
             
             
-            
-            
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
                     class="white-color"></span>&nbsp;次
@@ -1262,7 +1263,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+        <div class="col s12 m4 l4 social-link ">
     <a href="https://github.com/ChenZiHong-Gavin" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -1355,8 +1356,6 @@ $(function () {
     
     <script src="/libs/others/clicklove.js" async="async"></script>
     
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
