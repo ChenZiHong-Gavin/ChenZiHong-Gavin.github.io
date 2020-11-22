@@ -494,20 +494,20 @@
             <div id="articleContent">
                 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jngwl/articles/10096017.html">https://www.cnblogs.com/jngwl/articles/10096017.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a0aa94ef8ab2/">https://www.jianshu.com/p/a0aa94ef8ab2/</a></p>
-<h2><span id="配置">配置</span></h2><h3><span id="mathjax">mathjax</span></h3><p><strong>MathJax</strong>是一个开源，基于<strong>Ajax</strong>技术的数学表达式显示解决方案。它能够在HTMl页面中高质量的显示<strong>LaTeX</strong>和<strong>MathML</strong>数学符号。</p>
+<h2><span id="配置">配置</span></h2><h3><span id="mathjax">mathjax</span></h3><p><strong>MathJax</strong>是一个开源，基于<strong>Ajax</strong>技术的数学表达式显示解决方案。它能够在HTMl页面中高质量的显示<strong>LaTeX</strong>和<strong>MathML</strong>数学符号</p>
 <h3><span id="配置方法">配置方法</span></h3><ul>
 <li>使用官方推荐的 MathJax 的 CDN ( 内容分发网络 ) 进行调用</li>
 <li>使用针对不同平台开发的 MathJax 插件</li>
-<li>本地安装 MathJax 的内容然后调用。</li>
+<li>本地安装 MathJax 的内容然后调用</li>
 </ul>
 <h2><span id="基本语法">基本语法</span></h2><ul>
-<li>正文(inline)中的LaTeX公式用<script type="math/tex">`...`</script>定义</li>
+<li>正文(inline)中的LaTeX公式用<code>\$</code>…<code>\$</code>定义</li>
 <li>单独显示(display)的LaTeX公式用$$$$…$$$$定义，此时公式居中并放大显示</li>
 </ul>
 <h2><span id="修饰">修饰</span></h2><ul>
 <li><p>上下标</p>
 <p>使用<strong><code>^</code></strong>来表示上标，<strong><code>_</code></strong>来表示下标，同时如果上下标的内容多于一个字符，可以使用<strong><code>&#123;&#125;</code></strong>来将这些内容括起来当做一个整体</p>
-<p>如x = a_1^n + a_{23}^n + a_{4}^n呈现为$x = a_1^n + a_{23}^n + a_{4}^n$</p>
+<p>如x = a<em>1^n + a</em>{23}^n + a<em>{4}^n呈现为$x = a_1^n + a</em>{23}^n + a_{4}^n$</p>
 </li>
 <li><p>矢量</p>
 <p>在公式之前加上vec，如\vec a呈现为$\vec a$</p>
@@ -686,7 +686,7 @@
 </div>
 <ul>
 <li><p>斜体</p>
-<p>在公式之前加上var，例如\varGamma呈现为$x = a_1^n + a_{23}^n + a_{4}^n$</p>
+<p>在公式之前加上var，例如\varGamma呈现为$x = a<em>1^n + a</em>{23}^n + a_{4}^n$</p>
 </li>
 </ul>
 
