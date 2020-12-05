@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    432
+                    883
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    4 Min
                 </div>
                 
 
@@ -604,26 +604,26 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jngwl/articles/10096017.html">https://www.cnblogs.com/jngwl/articles/10096017.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a0aa94ef8ab2/">https://www.jianshu.com/p/a0aa94ef8ab2/</a></p>
-<h2><span id="配置">配置</span></h2><h3><span id="mathjax">mathjax</span></h3><p><strong>MathJax</strong>是一个开源，基于<strong>Ajax</strong>技术的数学表达式显示解决方案。它能够在HTMl页面中高质量的显示<strong>LaTeX</strong>和<strong>MathML</strong>数学符号</p>
+                <h2><span id="配置">配置</span></h2><h3><span id="mathjax">mathjax</span></h3><p><strong>MathJax</strong>是一个开源，基于<strong>Ajax</strong>技术的数学表达式显示解决方案。它能够在HTMl页面中高质量的显示<strong>LaTeX</strong>和<strong>MathML</strong>数学符号</p>
 <h3><span id="配置方法">配置方法</span></h3><ul>
 <li>使用官方推荐的 MathJax 的CDN( 内容分发网络 ) 进行调用</li>
 <li>使用针对不同平台开发的 MathJax 插件</li>
 <li>本地安装 MathJax 的内容然后调用</li>
 </ul>
 <h2><span id="基本语法">基本语法</span></h2><ul>
-<li>正文(inline)中的LaTeX公式用$…$定义</li>
-<li>单独显示(display)的LaTeX公式用$$…$$定义，此时公式居中并放大显示</li>
+<li>正文(inline)中的LaTeX公式用<code>\$...\$</code>定义</li>
+<li>单独显示(display)的LaTeX公式用<code>\$\$...\$\$</code>定义，此时公式居中并放大显示</li>
 </ul>
 <h2><span id="修饰">修饰</span></h2><ul>
 <li><p>上下标</p>
 <p>使用<strong><code>^</code></strong>来表示上标，<strong><code>_</code></strong>来表示下标，同时如果上下标的内容多于一个字符，可以使用<strong><code>&#123;&#125;</code></strong>来将这些内容括起来当做一个整体</p>
-<p>如x = a<em>1^n + a</em>{23}^n + a_{4}^n呈现为</p>
-<script type="math/tex; mode=display">
-x = a_1^n + a_{23}^n + a_{4}^n</script></li>
+<p>如</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = a<span class="built_in">_</span>1<span class="built_in">^</span>n + a<span class="built_in">_</span>&#123;23&#125;<span class="built_in">^</span>n + a<span class="built_in">_</span>&#123;4&#125;<span class="built_in">^</span>n</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<ul>
+<p>  呈现为</p>
+<script type="math/tex; mode=display">
+  x = a_1^n + a_{23}^n + a_{4}^n</script><ul>
 <li><p>矢量</p>
 <p>在公式之前加上vec，如\vec a呈现为$\vec a$</p>
 <p>另一种箭头在公式之前加上overright，如\overrightarrow{ab}呈现为$\overrightarrow{ab}$</p>
@@ -853,9 +853,9 @@ x = a_1^n + a_{23}^n + a_{4}^n</script></li>
 <td>$\frac{x+y}{a+b}$</td>
 </tr>
 <tr>
-<td>分式（二）</td>
-<td>{分子}\voer{分母}</td>
-<td>${分子}\voer{分母}$</td>
+<td>根式</td>
+<td>\sqrt{x}{y}</td>
+<td>$\sqrt{x}{y}$</td>
 </tr>
 </tbody>
 </table>
@@ -863,6 +863,169 @@ x = a_1^n + a_{23}^n + a_{4}^n</script></li>
 <ul>
 <li>高级运算</li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>公式</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>求和</td>
+<td>\sum_{i=1}^n{a_i}</td>
+<td>$\sum_{i=1}^n{a_i}$</td>
+</tr>
+<tr>
+<td>极限</td>
+<td>\lim_{x\to 0}</td>
+<td>$lim_{x\to 0}$</td>
+</tr>
+<tr>
+<td>积分</td>
+<td>\int_0^\infty{f(x)dx}</td>
+<td>$\int_0^\infty{f(x)dx}$</td>
+</tr>
+<tr>
+<td>多重积分</td>
+<td>\iint</td>
+<td>$\iint$</td>
+</tr>
+<tr>
+<td>累乘</td>
+<td>\prod</td>
+<td>$\prod$</td>
+</tr>
+<tr>
+<td>并集</td>
+<td>\bigcup</td>
+<td>$\bigcup$</td>
+</tr>
+<tr>
+<td>交集</td>
+<td>\bigcap</td>
+<td>$bigcap$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="函数">函数</span></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>公式</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正弦</td>
+<td>\sin x</td>
+<td>$\sin x$</td>
+</tr>
+<tr>
+<td>对数</td>
+<td>\ln x</td>
+<td>$\ln x$</td>
+</tr>
+<tr>
+<td>最大值</td>
+<td>\max (A,B,C)</td>
+<td>$\max (A,B,C)$</td>
+</tr>
+<tr>
+<td>以此类推</td>
+<td>……</td>
+<td>……</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="矩阵">矩阵</span></h2><ul>
+<li>基本方法</li>
+</ul>
+<p>起始标记<code>\begin&#123;matrix&#125;</code>，结束标记<code>\end&#123;matrix&#125;</code>，换行标记<code>\\</code>，元素分隔标记<code>&amp;</code></p>
+<p>如</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;matrix&#125;</span><br><span class="line">1<span class="built_in">&amp;</span>0<span class="built_in">&amp;</span>0<span class="keyword">\\</span></span><br><span class="line">0<span class="built_in">&amp;</span>1<span class="built_in">&amp;</span>0<span class="keyword">\\</span></span><br><span class="line">0<span class="built_in">&amp;</span>0<span class="built_in">&amp;</span>1<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\end</span>&#123;matrix&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p>呈现为</p>
+<script type="math/tex; mode=display">
+\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1\\
+\end{matrix}</script><ul>
+<li>矩阵边框</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>边框名</th>
+<th>公式</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小括号</td>
+<td>pmatrix</td>
+<td>$\begin{pmatrix}\end{pmatrix}$</td>
+</tr>
+<tr>
+<td>中括号</td>
+<td>bamatrix</td>
+<td>$\begin{bmatrix}\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>大括号</td>
+<td>Bmatrix</td>
+<td>$\begin{Bmatrix}\end{Bmatrix}$</td>
+</tr>
+<tr>
+<td>单竖线</td>
+<td>vmatrix</td>
+<td>$\begin{vmatrix}\end{vmatrix}$</td>
+</tr>
+<tr>
+<td>双竖线</td>
+<td>Vmatrix</td>
+<td>$\begin{Vmatrix}\end{Vmatrix}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>省略号</li>
+</ul>
+<p>横省略号：<code>\cdots</code></p>
+<p>竖省略号：<code>\vdots</code></p>
+<p>斜省略号：<code>\ddots</code></p>
+<p>如</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;bmatrix&#125;</span><br><span class="line">&#123;a<span class="built_in">_</span>&#123;11&#125;&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;12&#125;&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\cdots</span>&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;1n&#125;&#125;<span class="keyword">\\</span></span><br><span class="line">&#123;a<span class="built_in">_</span>&#123;21&#125;&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;22&#125;&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\cdots</span>&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;2n&#125;&#125;<span class="keyword">\\</span></span><br><span class="line">&#123;<span class="keyword">\vdots</span>&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\vdots</span>&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\ddots</span>&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\vdots</span>&#125;<span class="keyword">\\</span></span><br><span class="line">&#123;a<span class="built_in">_</span>&#123;m1&#125;&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;m2&#125;&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\cdots</span>&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;mn&#125;&#125;<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\end</span>&#123;bmatrix&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p>呈现为</p>
+<script type="math/tex; mode=display">
+\begin{matrix}
+{a_{11}}&{a_{12}}&{\cdots}&{a_{1n}}\\
+{a_{21}}&{a_{22}}&{\cdots}&{a_{2n}}\\
+{\vdots}&{\vdots}&{\ddots}&{\vdots}\\
+{a_{m1}}&{a_{m2}}&{\cdots}&{a_{mn}}\\
+\end{matrix}</script><h2><span id="方程组">方程组</span></h2><ul>
+<li>需要cases环境：起始、结束处以{cases}声明</li>
+</ul>
+<p>如</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">a<span class="built_in">_</span>1x+b<span class="built_in">_</span>1y+c<span class="built_in">_</span>1z=d<span class="built_in">_</span>1<span class="keyword">\\</span></span><br><span class="line">a<span class="built_in">_</span>2x+b<span class="built_in">_</span>2y+c<span class="built_in">_</span>2z=d<span class="built_in">_</span>2<span class="keyword">\\</span></span><br><span class="line">a<span class="built_in">_</span>3x+b<span class="built_in">_</span>3y+c<span class="built_in">_</span>3z=d<span class="built_in">_</span>3<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\end</span>&#123;cases&#125;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p>呈现为</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+a_1x+b_1y+c_1z=d_1\\
+a_2x+b_2y+c_2z=d_2\\
+a_3x+b_3y+c_3z=d_3\\
+\end{cases}</script><h2><span id="结束">结束</span></h2><p>整理就到这里了，以后还会有补充的。</p>
+<p>主要为了方便在Hexo的写作，顺带学习一点Latex的语法。</p>
+<h2><span id="参考">参考</span></h2><p><a target="_blank" rel="noopener" href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax tutorial</a></p>
 
             </div>
             <hr/>
