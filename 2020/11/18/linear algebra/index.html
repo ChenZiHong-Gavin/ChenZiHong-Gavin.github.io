@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    10 Min
                 </div>
                 
 
@@ -608,7 +608,7 @@
 <p>这篇文章用以记录学习线性代数的心路历程</p>
 </blockquote>
 <p>欢迎大家与我 <code>讨论</code> 以及 <code>留言</code></p>
-<p>(在这里悄悄挖个坑: 11月结束之前看完<a target="_blank" rel="noopener" href="http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fopencourse%2Fdaishu.html">MIT线性代数课程</a>)</p>
+<p>(<a target="_blank" rel="noopener" href="http://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fopencourse%2Fdaishu.html">MIT线性代数课程</a>)</p>
 <h2><span id="目录">目录</span></h2><!-- toc -->
 <ul>
 <li><a href="#二阶-三阶与n阶行列式">二阶、三阶与n阶行列式</a><ul>
@@ -641,19 +641,7 @@
 </ul>
 <!-- tocstop -->
 <h2><span id="二阶-三阶与n阶行列式">二阶、三阶与n阶行列式</span></h2><h3><span id="什么是行列式">什么是行列式</span></h3><p>​    行列式是一种非常有用的数学工具，是线性代数的一个基本内容。</p>
-<h3><span id="二阶行列式">二阶行列式</span></h3><blockquote>
-<p>定义1.1.1</p>
-<p>将四个可以进行乘法和加法运算的元素a,b,c,d排成两行两列：</p>
-<script type="math/tex; mode=display">
-\begin{vmatrix}
-a&b \\
-c&d
-\end{vmatrix}
-=ad-bc</script><p>称为二阶行列式。</p>
-</blockquote>
-<p>​    二阶行列式事实上是一个算式，即左上角与右下角的元素相乘后减去右上角与左下角的元素相乘。</p>
-<hr>
-<p>​    对于二元一次方程组（方程组1.1）：</p>
+<h3><span id="二阶行列式">二阶行列式</span></h3><p>​    一般来说，我们解二元一次方程组（方程组1.1），采用消元法：</p>
 <script type="math/tex; mode=display">
 \begin{cases}
 a_{11}x_1+a_{12}x_2=b_1 \\
@@ -663,7 +651,19 @@ a_{21}x_1+a_{22}x_2=b_2
 \begin{cases}
 x_1=\frac{b_1a_{22}-b_2a_{11}}{a_{11}a_{22}-a_{12}a_{21}} \\
 x_2=\frac{b_2a_{11}-b_1a_{21}}{a_{11}a_{22}-a_{12}a_{21}}
-\end{cases}</script><p>​    记：</p>
+\end{cases}</script><p>很容易发现形式上的统一，所以我们引入新的记号来表示。</p>
+<blockquote>
+<p>定义1.1.1</p>
+<p>将四个可以进行乘法和加法运算的元素a,b,c,d排成两行两列：</p>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+a&b \\
+c&d
+\end{vmatrix}
+=ad-bc</script><p>称为<em>二阶行列式</em>。</p>
+</blockquote>
+<p>二阶行列式事实上是一个算式，即左上角与右下角的元素相乘后减去右上角与左下角的元素相乘。</p>
+<p>​    记：</p>
 <script type="math/tex; mode=display">
 \Delta=
 \begin{vmatrix}
@@ -685,16 +685,16 @@ a_{21}&b_{2}
 <blockquote>
 <p>定理1.1.1</p>
 <p>对方程组1.1有如下结论：</p>
-<p>(1) 若</p>
+<p>（1）若</p>
 <script type="math/tex; mode=display">
 \Delta \neq0</script><p>则方程组（1.1）有唯一的解</p>
 <script type="math/tex; mode=display">
 x_1=\frac{\Delta_1}\Delta \\
-x_2=\frac{\Delta_2}\Delta</script><p>(2) 若</p>
+x_2=\frac{\Delta_2}\Delta</script><p>（2）若</p>
 <script type="math/tex; mode=display">
 \Delta=0 \\
 \Delta_1，\Delta_2不全为0</script><p>则方程组（1.1）无解</p>
-<p>(3) 若</p>
+<p>（3）若</p>
 <script type="math/tex; mode=display">
 \Delta=\Delta_1=\Delta_2=0</script><p>则方程组（1.1）有无穷多组解</p>
 </blockquote>
@@ -707,9 +707,28 @@ a&b&c \\
 d&e&f \\
 g&h&i
 \end{vmatrix}
-=aei-afh-bdi+bgf+cdh-ceg</script><p>表示，并称之为<strong>三阶行列式</strong></p>
+=aei-afh-bdi+bgf+cdh-ceg \\
+=a\begin{vmatrix}
+e&f \\
+h&i
+\end{vmatrix}
+-
+b\begin{vmatrix}
+d&f \\
+g&i
+\end{vmatrix}
++
+c
+\begin{vmatrix}
+d&e \\
+g&h
+\end{vmatrix}</script><p>表示，并称之为<strong>三阶行列式</strong></p>
+<p>计算规则：</p>
+<p>1）任取一行（列）</p>
+<p>2）用这行（列）的每个元素 × 除开此元素所在行与列剩下的行列式 × $（-1）^{i+j}$，i是行号，j是列号</p>
+<p>3）相加</p>
 </blockquote>
-<p>​    同样，三阶行列式可以应用于三元一次方程组（方程组1.2）</p>
+<p>同样，三阶行列式可以应用于三元一次方程组（方程组1.2）</p>
 <script type="math/tex; mode=display">
 \begin{cases}
 a_{11}x_1+a_{12}x_2+a_{13}x_3=b_1 \\
@@ -740,7 +759,7 @@ a_{31}&b_{3}&a_{33}
 a_{11}&a_{12}&b_{1} \\
 a_{21}&a_{22}&b_{2} \\
 a_{31}&a_{32}&b_{3}
-\end{vmatrix}</script><p>有定理：</p>
+\end{vmatrix}</script><p>​    有定理：</p>
 <blockquote>
 <p>定理1.1.2</p>
 <p>对方程组1.2有如下结论：</p>
@@ -755,7 +774,78 @@ x_1=\frac{\Delta_1}\Delta \\x_2=\frac{\Delta_2}\Delta \\x_3=\frac{\Delta_3}\Delt
 <script type="math/tex; mode=display">
 \Delta=\Delta_1=\Delta_2=0</script><p>则方程组（1.1）可能无解也可能有无穷多组解</p>
 </blockquote>
+<hr>
+<p>二阶三阶行列式有许多特别的性质，然而这些性质在行列式中是共通的，我们不妨放在n阶行列式中来看。</p>
 <h3><span id="n阶行列式">n阶行列式</span></h3><blockquote>
+<p>定义1.2.1</p>
+<script type="math/tex; mode=display">
+D_n=\begin{vmatrix}
+a_{11}&a_{12}&\cdots&a_{1n} \\
+a_{21}&a_{22}&\cdots&a_{2n} \\
+\vdots&\vdots&\ddots&\vdots \\
+a_{n1}&a_{n2}&\cdots&a_{nn}
+\end{vmatrix} \\
+=a_{11}A_{11}+a_{12}A_{12}+\cdots+a_{1n}A_{1n} \\
+=\Sigma_{j=1}^na_{1j}A_{1j}</script><p>其中</p>
+<script type="math/tex; mode=display">
+A_{ij}=(-1)^{i+j}M_{ij} \\
+M_{ij}$是a_{ij}的余子式,即除去第i行，第j列剩下的元素组成的行列式 \\
+A_{ij}被称为代数余子式</script></blockquote>
+<p>几个特别的行列式：</p>
+<ul>
+<li>上三角行列式</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+a_{11}&a_{12}&\cdots&a_{1n} \\
+0&a_{22}&\cdots&a_{2n} \\
+\vdots&\vdots&\ddots&\vdots \\
+0&0&\cdots&a_{nn}
+\end{vmatrix}</script><ul>
+<li>下三角行列式</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+a_{11}&0&\cdots&0 \\
+a_{21}&a_{22}&\cdots&0 \\
+\vdots&\vdots&\ddots&\vdots \\
+a_{n1}&a_{n2}&\cdots&0
+\end{vmatrix}</script><ul>
+<li>对角行列式</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+a_{11}&0&\cdots&0 \\
+0&a_{22}&\cdots&0 \\
+\vdots&\vdots&\ddots&\vdots \\
+0&0&\cdots&a_{nn}
+\end{vmatrix}</script><ul>
+<li>反对称行列式</li>
+</ul>
+<script type="math/tex; mode=display">
+D_n=\begin{vmatrix}
+a_{11}&a_{12}&\cdots&a_{1n} \\
+-a_{11}&a_{22}&\cdots&a_{2n} \\
+\vdots&\vdots&\ddots&\vdots \\
+-a_{1n}&-a_{2n}&\cdots&a_{nn}\end{vmatrix}</script><p>容易证明：奇数阶的反对称行列式都为0</p>
+<blockquote>
+<p>定义1.2.3</p>
+<p>转置行列式</p>
+<script type="math/tex; mode=display">
+设A=\begin{vmatrix}
+a_{11}&a_{12}&\cdots&a_{1n} \\
+a_{21}&a_{22}&\cdots&a_{2n} \\
+\vdots&\vdots&\ddots&\vdots \\
+a_{n1}&a_{n2}&\cdots&a_{nn}\end{vmatrix}\\
+A^{'}=\begin{vmatrix}
+a_{11}&a_{21}&\cdots&a_{n1} \\
+a_{12}&a_{22}&\cdots&a_{n2} \\
+\vdots&\vdots&\ddots&\vdots \\
+a_{1n}&a_{2n}&\cdots&a_{nn}\end{vmatrix}</script><p>则A’为A的<em>转置行列式</em>，即行与列交换所得，也可以用$A^T$表示。</p>
+</blockquote>
+<hr>
+<p>行列式常用的几个性质：</p>
+<blockquote>
 <p>定理1.2.1</p>
 <p>行列式与它的转置行列式的值相等</p>
 <p>定理1.2.2</p>
@@ -770,11 +860,50 @@ x_1=\frac{\Delta_1}\Delta \\x_2=\frac{\Delta_2}\Delta \\x_3=\frac{\Delta_3}\Delt
 <p>若行列式任意两行（列）对应成比例，则行列式的值为0</p>
 <p>定理1.2.7</p>
 <p>行列式可以拆分成两个行列式的和</p>
+<p>定理1.2.8</p>
+<p>将行列式任意一行（列）乘以系数k加到另一行上去，行列式的值不变。</p>
+<p>定理1.2.9</p>
+<p>行列式任一行（列）与另一行（列）的代数余子式乘积之和为0</p>
 </blockquote>
 <ul>
-<li>n阶范德蒙行列式</li>
+<li>n阶Vandermonde行列式</li>
 </ul>
-<h2><span id="矩阵">矩阵</span></h2><ul>
+<script type="math/tex; mode=display">
+D_n=\begin{vmatrix}
+1&1&\cdots&1 \\
+x_{1}&x_{2}&\cdots&x_{n} \\
+\vdots&\vdots&\ddots&\vdots \\
+x_{1}^{n-1}&x_{2}^{n-1}&\cdots&x_{n}^{n-1}\end{vmatrix} \\
+=\prod_{1\leq i\leq j} (x_j-x_i)</script><ul>
+<li>分块行列式乘法</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+A&0 \\
+*&B \\
+\end{vmatrix}
+=
+\begin{vmatrix}
+A&* \\
+0&B \\
+\end{vmatrix}
+=\begin{vmatrix}
+A
+\end{vmatrix}
+\begin{vmatrix}
+B 
+\end{vmatrix} \\
+\begin{vmatrix}
+0&A \\
+B&* \\
+\end{vmatrix}
+=(-1)^{nm}
+\begin{vmatrix}
+A
+\end{vmatrix}
+\begin{vmatrix}
+B 
+\end{vmatrix} \\</script><h2><span id="矩阵">矩阵</span></h2><ul>
 <li>转置矩阵</li>
 <li>方阵的行列式</li>
 </ul>
