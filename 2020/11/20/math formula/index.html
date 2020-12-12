@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
 
@@ -587,7 +587,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    890
+                    891
                 </div>
                 
 
@@ -618,7 +618,7 @@
 <li><p>上下标</p>
 <p>使用<strong><code>^</code></strong>来表示上标，<strong><code>_</code></strong>来表示下标，同时如果上下标的内容多于一个字符，可以使用<strong><code>&#123;&#125;</code></strong>来将这些内容括起来当做一个整体</p>
 <p>如</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = a<span class="built_in">_</span>1<span class="built_in">^</span>n + a<span class="built_in">_</span>&#123;23&#125;<span class="built_in">^</span>n + a<span class="built_in">_</span>&#123;4&#125;<span class="built_in">^</span>n</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex">x &#x3D; a_1^n + a_&#123;23&#125;^n + a_&#123;4&#125;^n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
 <p>  呈现为</p>
@@ -949,7 +949,11 @@
 </ul>
 <p>起始标记<code>\begin&#123;matrix&#125;</code>，结束标记<code>\end&#123;matrix&#125;</code>，换行标记<code>\\</code>，元素分隔标记<code>&amp;</code></p>
 <p>如</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;matrix&#125;</span><br><span class="line">1<span class="built_in">&amp;</span>0<span class="built_in">&amp;</span>0<span class="keyword">\\</span></span><br><span class="line">0<span class="built_in">&amp;</span>1<span class="built_in">&amp;</span>0<span class="keyword">\\</span></span><br><span class="line">0<span class="built_in">&amp;</span>0<span class="built_in">&amp;</span>1<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\end</span>&#123;matrix&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex">$$\begin&#123;matrix&#125;
+1&amp;0&amp;0\\
+0&amp;1&amp;0\\
+0&amp;0&amp;1\\
+\end&#123;matrix&#125;$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
 <script type="math/tex; mode=display">
 \begin{matrix}
@@ -1004,7 +1008,12 @@
 <p>竖省略号：<code>\vdots</code></p>
 <p>斜省略号：<code>\ddots</code></p>
 <p>如</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;bmatrix&#125;</span><br><span class="line">&#123;a<span class="built_in">_</span>&#123;11&#125;&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;12&#125;&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\cdots</span>&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;1n&#125;&#125;<span class="keyword">\\</span></span><br><span class="line">&#123;a<span class="built_in">_</span>&#123;21&#125;&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;22&#125;&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\cdots</span>&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;2n&#125;&#125;<span class="keyword">\\</span></span><br><span class="line">&#123;<span class="keyword">\vdots</span>&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\vdots</span>&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\ddots</span>&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\vdots</span>&#125;<span class="keyword">\\</span></span><br><span class="line">&#123;a<span class="built_in">_</span>&#123;m1&#125;&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;m2&#125;&#125;<span class="built_in">&amp;</span>&#123;<span class="keyword">\cdots</span>&#125;<span class="built_in">&amp;</span>&#123;a<span class="built_in">_</span>&#123;mn&#125;&#125;<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\end</span>&#123;bmatrix&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex">$$\begin&#123;bmatrix&#125;
+&#123;a_&#123;11&#125;&#125;&amp;&#123;a_&#123;12&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a_&#123;1n&#125;&#125;\\
+&#123;a_&#123;21&#125;&#125;&amp;&#123;a_&#123;22&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a_&#123;2n&#125;&#125;\\
+&#123;\vdots&#125;&amp;&#123;\vdots&#125;&amp;&#123;\ddots&#125;&amp;&#123;\vdots&#125;\\
+&#123;a_&#123;m1&#125;&#125;&amp;&#123;a_&#123;m2&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a_&#123;mn&#125;&#125;\\
+\end&#123;bmatrix&#125;$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
 <script type="math/tex; mode=display">
 \begin{matrix}
@@ -1016,7 +1025,12 @@
 <li>需要cases环境：起始、结束处以{cases}声明</li>
 </ul>
 <p>如</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">a<span class="built_in">_</span>1x+b<span class="built_in">_</span>1y+c<span class="built_in">_</span>1z=d<span class="built_in">_</span>1<span class="keyword">\\</span></span><br><span class="line">a<span class="built_in">_</span>2x+b<span class="built_in">_</span>2y+c<span class="built_in">_</span>2z=d<span class="built_in">_</span>2<span class="keyword">\\</span></span><br><span class="line">a<span class="built_in">_</span>3x+b<span class="built_in">_</span>3y+c<span class="built_in">_</span>3z=d<span class="built_in">_</span>3<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\end</span>&#123;cases&#125;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex">$$\begin&#123;cases&#125;
+a_1x+b_1y+c_1z&#x3D;d_1\\
+a_2x+b_2y+c_2z&#x3D;d_2\\
+a_3x+b_3y+c_3z&#x3D;d_3\\
+\end&#123;cases&#125;
+$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
 <script type="math/tex; mode=display">
 \begin{cases}
@@ -1027,7 +1041,7 @@ a_3x+b_3y+c_3z=d_3\\
 <p>主要为了方便在Hexo的写作，顺带学习一点Latex的语法。</p>
 <h2><span id="参考">参考</span></h2><p><a target="_blank" rel="noopener" href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax tutorial</a></p>
 <p><a target="_blank" rel="noopener" href="https://latex.codecogs.com/eqneditor/editor.php">Latex公式在线查看</a></p>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
             </div>
             <hr/>
 
