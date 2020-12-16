@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.4k
+                    7.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    24 Min
+                    30 Min
                 </div>
                 
 
@@ -1463,6 +1463,25 @@ X×Y=X× Y_nY_{n-1}\cdots Y_2Y_1 \\
 <li>如果被除数与除数符号不同，用被除数加上一定倍数的除数，不使其变号</li>
 </ol>
 <ul>
+<li><p>除法</p>
+<p>特殊情况：</p>
+<ol>
+<li>X为0，Y不为0: 0</li>
+<li>X不为0，Y为0：exception</li>
+<li>X为0，Y为0：nan</li>
+<li>X不为0，Y不为0：进行运算</li>
+</ol>
+<p>过程：</p>
+<ol>
+<li>除数被装入M寄存器，被除数被装入Q寄存器，被除数必须以2n位的补码来表示。（算术拓展），余数被装入A寄存器。</li>
+<li>A，Q左移一位</li>
+<li>若M与A同符号，A变成A-M，否则A变成A+M</li>
+<li>若A在操作后符号没有改变，则上述操作是成功的</li>
+<li>如果操作是成功的或者A=0，则Q0=1；如果操作是不成功的，Q0=0并恢复之前A的值</li>
+<li>重复2-4，Q有多少位就执行多少步</li>
+<li>最后A中的是余数，如果被除数与除数同号，那么Q中的是商，否则Q中的值取负为正确的商</li>
+</ol>
+</li>
 <li><p>位移</p>
 <blockquote>
 <p>根据标准i386手册(p384)，所有shift操作的移位操作数仅使用后5位，其他位数直接舍去</p>
@@ -1494,6 +1513,202 @@ X×Y=X× Y_nY_{n-1}\cdots Y_2Y_1 \\
 <li>加法：两个有效数相加，包括它们的符号一起考虑。这里可能发生上溢，则有效数右移，指数增量，若指数发生上溢，那么应该停止该操作并且报告。</li>
 <li>规格化：左移有效数到最高有效数字，此过程中，指数可能下溢，应该停止操作并报告</li>
 </ol>
+</li>
+<li><p>保护位</p>
+<p>在浮点运算之前，每个操作数的指数和有效数都要装进ALU的寄存器中。有效数装入的情况是，寄存器的长度几乎总是大于有效位长加一个隐藏位之和，其余附加位叫做保护位。用于以0扩展有效位的右端。</p>
+</li>
+<li><p>浮点数乘法</p>
+<ol>
+<li>考虑极端情况</li>
+<li>判断是否有数为0</li>
+<li>指数相加</li>
+<li>有效数相乘</li>
+<li>规格化有效数（可能导致指数溢出）</li>
+</ol>
+</li>
+</ul>
+<h3><span id="decimal加减法">Decimal加减法</span></h3><ul>
+<li><p>加法</p>
+<p>当有值在10到19之间时，需要进位</p>
+</li>
+<li><p>减法</p>
+<p>加上补码</p>
+</li>
+</ul>
+<h2><span id="cache">Cache</span></h2><p>Cache是一种内存储器</p>
+<h3><span id="cache存储器原理">Cache存储器原理</span></h3><p>Cache的目的是，为了给出逼近最快存储器的速度，同时用较便宜的半导体存储器的价格提供一个大的存储器容量。</p>
+<p>当CPU试图从存储器中读取一个字时，检查这个字是否在Cache中，如果是，则这个字传送给CPU，如果不是，则主存储器中国一块固定数字的字被读入Cache。</p>
+<p>由于访问局部性，当把一块数据存入Cache，将来CPU访问其它字是有可能的</p>
+<h3><span id="结构">结构</span></h3><ul>
+<li>主存储器由多达$2^n$个可寻址的字组成，每个字都有唯一的n位地址</li>
+<li>我们可以把这个存储器看成由许多定长的块组成，每个块有K个字，即有M=2^n/K个块</li>
+<li>Cache有C个行组成，每行有K个字，行的数量远远小于块的数量</li>
+<li>每行有个标记，用来识别当前存储的是哪一个块</li>
+<li>这个标记通常是主存储器地址的一部分</li>
+</ul>
+<h3><span id="读操作">读操作</span></h3><ol>
+<li>处理器产生一个要读取的字的地址RA</li>
+<li>如果这个字存在于Cache中，则返回这个字</li>
+<li>否则，进行两个并行操作：<ol>
+<li>把包含这个字的块装进Cache</li>
+<li>把请求的字返回CPU</li>
+</ol>
+</li>
+</ol>
+<h3><span id="映射功能">映射功能</span></h3><p>Cache的行远少于主存的块，所以需要一种算法把主存的块映射到Cache的行中，并且需要一种方法确定主存储器的哪一块当前占用了Cache的行</p>
+<p>通常采用三种技术：</p>
+<ol>
+<li>直接映射</li>
+<li>关联映射</li>
+<li>组关联映射</li>
+</ol>
+<hr>
+<ul>
+<li><p>直接映射</p>
+<p>把主存储器的每一块映射到相关的固定的行中。</p>
+<script type="math/tex; mode=display">
+i=j \ mod \ m</script><p>i=Cache行号</p>
+<p>j=主存储器块号</p>
+<p>m=Cache的行数</p>
+</li>
+</ul>
+<p>因此，地址这样表示：</p>
+<p>地址长度=（s+w）位</p>
+<p>寻址单元个数=$2^{s+w}$个，即可以寻址这么多的字</p>
+<p>块大小=行大小=2^w个字</p>
+<p>主存的块数=2^s</p>
+<p>Cache的行数m=2^r个</p>
+<p>则标记的大小（s-r）位</p>
+<blockquote>
+<p>例如</p>
+<p>Cache有四行，每行8个字</p>
+<p>主存有128个字，则主存有16个块</p>
+<p>直接映射后Cache的每一行负责4个块</p>
+<p>那么地址的长度为7位</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Line</th>
+<th>Word</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Word表示在块中寻找字</p>
+<p>Line表示选择Cache的行</p>
+<p>Tag表示哪个块占用了行</p>
+</blockquote>
+<ul>
+<li><p>关联映射</p>
+<p>允许主存储器中的每一个块装入Cache的任何一行中</p>
+<p>关联映射把存储器地址解释为tag和word域</p>
+<p>tag唯一标识主存储块</p>
+<p>​    为确定某块是否在cache中，必须对cache中每一行的标记位进行检查</p>
+</li>
+</ul>
+<p>于是地址这样表示：</p>
+<p>地址长度=（s+w）位</p>
+<p>寻址单元数=$2^{s+w}$个，即可以表示这么多的字</p>
+<p>块大小=行大小=2^w个，即每行或者每块有这么多个字</p>
+<p>主存的块数=2^s个</p>
+<p>Cache的行数不确定</p>
+<p>标记位=s</p>
+<p>标记位完全由块数确定</p>
+<blockquote>
+<p>例如</p>
+<p>Cache有4行，每行8个字</p>
+<p>主存储器有128个字，即有16个块</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Word</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Word用于在行中找到相应的字</p>
+<p>Tag用于在主存中找到相应的块</p>
+</blockquote>
+<ul>
+<li><p>组关联映射</p>
+<p>组关联映射直接体现关联映射和直接映射的优点</p>
+<p>将Cache分为v个组，每个组有k行</p>
+<p>​    Cache的行数 m=v×k</p>
+<p>​    Cache组号i=j mod v</p>
+<p>把存储器地址分为三个域：标记、组和字</p>
+</li>
+</ul>
+<p>于是地址这样表示：</p>
+<p>​    地址长度=（s+w）位</p>
+<p>​    寻址单元数=$2^{s+w}$个字，即一共有这么多个字</p>
+<p>​    块大小=行大小=2^w</p>
+<p>​    每组的行数=k</p>
+<p>​    组数v=2^d</p>
+<p>​    Cache的行数=kv</p>
+<p>标记大小=（s-d）位</p>
+<blockquote>
+<p>例如</p>
+<p>Cache有4行，可以分成两组，每组两行</p>
+<p>每行有8个字</p>
+<p>主存储器有128个字，那么就有16个块</p>
+<p>16个块，可以分成8个组</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Set</th>
+<th>Word</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Word在块或者行里面找字</p>
+<p>Set在组里面可以找到对应的块</p>
+<p>Tag在Cache中找到对应哪一个组</p>
+</blockquote>
+<h3><span id="替换策略">替换策略</span></h3><p>当主存中新的块被写入Cache时，原先的行的内容需要被覆盖掉。</p>
+<p>对于直接映射，一个特定的块有一个固定的行</p>
+<p>而对于关联映射和组关联映射，需要有一种替换策略</p>
+<ul>
+<li>最近最少（LRU）：替换掉那些在Cache中驻留时间最长且未被引用过的块</li>
+<li>先进先出（FIFO）：直接替换掉在Cache中停留时间最长的块</li>
+<li>最不经常使用（LFU）</li>
+<li>随机选取</li>
+</ul>
+<h3><span id="写策略">写策略</span></h3><p>在Cache中的一行被取代时，必须考虑它是否在Cache中被修改过。</p>
+<p>如果没有修改，那么直接覆盖。</p>
+<p>如果被修改过了，那么主存中的内容必须被更新。</p>
+<ul>
+<li><p>写直达</p>
+<p>每当cache被修改时，立即对主存进行写操作</p>
+</li>
+<li><p>写回</p>
+<p>只在Cache中进行修改，修改时设置与此行相关的修改位，因此，当某个块被替换的时候，当且仅当修改位被修改时，才将它写回主存储器</p>
 </li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
