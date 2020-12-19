@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    7.1k
+                    7.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    30 Min
+                    32 Min
                 </div>
                 
 
@@ -932,7 +932,9 @@ private String negation(String operand)
 A=-2^{n-1}a_{n-1}+\Sigma_{i=0}^{n-2}2^ia_i</script></li>
 </ul>
 <ul>
-<li><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
+<li>intToBinary</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
  * Integer to binaryString
  *
  * @param numStr to be converted
@@ -973,8 +975,6 @@ A=-2^{n-1}a_{n-1}+\Sigma_{i=0}^{n-2}2^ia_i</script></li>
         &#125;
         return ans;
  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
 <ul>
 <li>binaryToInt</li>
 </ul>
@@ -1711,7 +1711,53 @@ i=j \ mod \ m</script><p>i=Cache行号</p>
 <p>只在Cache中进行修改，修改时设置与此行相关的修改位，因此，当某个块被替换的时候，当且仅当修改位被修改时，才将它写回主存储器</p>
 </li>
 </ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+<h2><span id="磁盘">磁盘</span></h2><h3><span id="磁盘读写机制">磁盘读写机制</span></h3><p>数据的记录及读出通过一个叫做磁头的的导电线圈进行</p>
+<h2><span id="内存管理">内存管理</span></h2><p>过去，只有操作系统在内存里面</p>
+<p>现今，操作系统和多个程序都在里面</p>
+<ul>
+<li>为了减少处理器等待I/O的停顿</li>
+</ul>
+<p>三种内存管理模式：</p>
+<ul>
+<li>实模式</li>
+<li>分段式</li>
+<li>段页式</li>
+</ul>
+<h3><span id="分区">分区</span></h3><p>操作系统占内存的固定部分，其余部分分区后分配给多个进程使用</p>
+<ul>
+<li><p>定长分区</p>
+<p>长度不等</p>
+<p>当一个进程调入主存的时候，分配给它一个能容纳它的最小的分区</p>
+</li>
+<li><p>变长分区</p>
+<p>当一个进程调入主存的时候，分配的分区和进程需要的大小一致</p>
+</li>
+</ul>
+<h3><span id="分页">分页</span></h3><p>定长分区和不定长分区的效率都很低，所以采用分页</p>
+<ul>
+<li><p>原理</p>
+<p>把存储器分成固定长的比较小的存储块，把每个进程也划分成小的固定长的块。</p>
+<p>一个程序的程序块分配到进程的存储块中。</p>
+<p>即把页放入页帧。</p>
+</li>
+<li><p>地址</p>
+<p>由操作系统为每个进程保存一个页表，页表记录了进程每一个页的页帧地址。</p>
+<p>在程序中，每个逻辑地址由一个页号和页中相对地址组成。</p>
+<p>遇到一个逻辑地址的时候（页号+相对地址），处理器把它变成物理地址（页帧号+相对地址）</p>
+</li>
+</ul>
+<h3><span id="请求分页">请求分页</span></h3><p>请求分页表示每个进程的页只在需要的时候被调用。</p>
+<p>于是，在任何时候，只有任一给定进程的小部分页在存储器中，因而有更多的进程能驻留在存储器中。</p>
+<h3><span id="页表结构">页表结构</span></h3><p>从存储器中读取一个字的基本机制是：使用页表把虚拟或者逻辑地址转换成物理地址。</p>
+<ul>
+<li><p>保存位置</p>
+<p>由于页表是可变长的，所以我们不能把它保存在寄存器中，而必须把它保存在主存中。</p>
+<p>当运行一个特定进程的时候，寄存器保存这个进程页表的初始地址。</p>
+</li>
+</ul>
+<h3><span id="转换后缓缓存器">转换后缓缓存器</span></h3><p>每次虚拟存储器的访问都能产生两次物理存储器存取，一次是获取相应的页表项，一次是获取所需的数据。因此，即使一个简单的虚拟存储器方案也将使存储器的存取时间加倍。</p>
+<p>所以，许多存储器都采用一个特殊的Cache来保存最近使用的那些页表项。</p>
+<h3><span id="实模式">实模式</span></h3><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
             </div>
             <hr/>
 
@@ -1930,6 +1976,32 @@ i=j \ mod \ m</script><p>i=Cache行号</p>
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '313a96290c5f5a3a7f7f',
+        clientSecret: 'e8045c4afb32efbdf201edef96ac09682528681f',
+        repo: 'blog_comment',
+        owner: 'ChenZiHong-Gavin',
+        admin: "ChenZiHong-Gavin",
+        id: '2020-12-08T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
