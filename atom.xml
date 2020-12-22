@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>陈氏小屋</title>
+  
+  <subtitle>这里有我想说的</subtitle>
+  <link href="http://chenzihong.com/atom.xml" rel="self"/>
+  
+  <link href="http://chenzihong.com/"/>
+  <updated>2020-12-22T01:37:39.356Z</updated>
+  <id>http://chenzihong.com/</id>
+  
+  <author>
+    <name>陈子鸿</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>宏观经济学</title>
+    <link href="http://chenzihong.com/2020/12/19/Economic%20Principles/"/>
+    <id>http://chenzihong.com/2020/12/19/Economic%20Principles/</id>
+    <published>2020-12-19T10:54:56.000Z</published>
+    <updated>2020-12-22T01:37:39.356Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;宏观经济学可以解释这些问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为什么一些国家平均收入高，而一些国家平均收入低？&lt;/li&gt;
+&lt;li&gt;为什么物价有时候上涨迅速，有时候比较稳定？&lt;/li&gt;
+&lt;li&gt;为什么生产和就业在一些时候扩张，在另一些时候收缩？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;&lt;sp</summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://chenzihong.com/categories/Economics/"/>
+    
+    
+    <category term="Economics - Macroeconomics" scheme="http://chenzihong.com/tags/Economics-Macroeconomics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组织与结构</title>
+    <link href="http://chenzihong.com/2020/12/08/COA/"/>
+    <id>http://chenzihong.com/2020/12/08/COA/</id>
+    <published>2020-12-07T16:00:00.000Z</published>
+    <updated>2020-12-21T01:04:46.214Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;computer-organization-and-architecture&quot;&gt;Computer Organization and Architecture&lt;/span&gt;&lt;/h1&gt;&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="Computer" scheme="http://chenzihong.com/categories/Computer/"/>
+    
+    
+    <category term="Computer" scheme="http://chenzihong.com/tags/Computer/"/>
+    
+    <category term="Computer components" scheme="http://chenzihong.com/tags/Computer-components/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对Hexo官方文档的研究</title>
+    <link href="http://chenzihong.com/2020/11/26/Hexo%20research/"/>
+    <id>http://chenzihong.com/2020/11/26/Hexo%20research/</id>
+    <published>2020-11-26T09:31:56.000Z</published>
+    <updated>2020-12-12T03:18:15.310Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://hexo.io/zh-cn/&quot;&gt;https://hexo.io/zh-cn/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Beginning" scheme="http://chenzihong.com/categories/Beginning/"/>
+    
+    
+    <category term="Hexo" scheme="http://chenzihong.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown之下的数学公式</title>
+    <link href="http://chenzihong.com/2020/11/20/math%20formula/"/>
+    <id>http://chenzihong.com/2020/11/20/math%20formula/</id>
+    <published>2020-11-19T16:00:00.000Z</published>
+    <updated>2020-12-12T03:15:09.718Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;配置&quot;&gt;配置&lt;/span&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="Beginning" scheme="http://chenzihong.com/categories/Beginning/"/>
+    
+    
+    <category term="Algebra" scheme="http://chenzihong.com/tags/Algebra/"/>
+    
+    <category term="Markdown" scheme="http://chenzihong.com/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>看不完的线性代数</title>
+    <link href="http://chenzihong.com/2020/11/18/linear%20algebra/"/>
+    <id>http://chenzihong.com/2020/11/18/linear%20algebra/</id>
+    <published>2020-11-17T16:00:00.000Z</published>
+    <updated>2020-12-05T06:21:28.849Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;这篇文章用以记录学习线性代数的心路历程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;欢迎大家与我 &lt;code&gt;讨论&lt;/code&gt; 以及 &lt;code&gt;留言&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Algebra" scheme="http://chenzihong.com/categories/Algebra/"/>
+    
+    
+    <category term="Algebra" scheme="http://chenzihong.com/tags/Algebra/"/>
+    
+    <category term="Linear Algebra" scheme="http://chenzihong.com/tags/Linear-Algebra/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://chenzihong.com/2020/10/29/hello-world/"/>
+    <id>http://chenzihong.com/2020/10/29/hello-world/</id>
+    <published>2020-10-28T16:00:00.000Z</published>
+    <updated>2020-12-12T03:16:33.968Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="Beginning" scheme="http://chenzihong.com/categories/Beginning/"/>
+    
+    
+    <category term="Hexo" scheme="http://chenzihong.com/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>
