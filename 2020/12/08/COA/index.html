@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    7.8k
+                    5.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    32 Min
+                    20 Min
                 </div>
                 
 
@@ -858,154 +858,20 @@ A=\Sigma_{i=0}^{n-1}2^ia_i</script><ul>
 <ul>
 <li>范围：$-2^{n-1}-2^{n-1}-1$</li>
 <li>表示0的个数：1个</li>
-<li>取负：取反加一</li>
+<li><p>取负：取反加一</p>
+</li>
+<li><p>位长度拓展：在左边添加需要拓展长度的符号位</p>
+</li>
 </ul>
-<p>这里我们可以实现32位取反和加一的操作：</p>
-<p>取反：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * convert the string&#39;s 0 and 1.
- * e.g 00000 to 11111
- *
- * @param operand string to convert (by default, it is 32 bits long)
- * @return string after converting
- *&#x2F;
-private String negation(String operand)
-&#123;
-        StringBuilder result &#x3D; new StringBuilder();
-        for (int i &#x3D; 0; i &lt; operand.length(); i++) 
-        &#123;
-            if(operand.charAt(i)&#x3D;&#x3D;&#39;1&#39;)
-                result.append(&#39;0&#39;);
-            else &#x2F;&#x2F;if operand.charAt(i)&#x3D;&#x3D;&#39;0&#39;
-                result.append(&#39;1&#39;);
-        &#125;
-        return result.toString();
-    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>加一：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">    &#x2F;**
-     * add one to the operand
-     *
-     * @param operand the operand
-     * @return result after adding
-     * if overflow, throw it
-     *&#x2F;
-    private String oneAdder(String operand)
-    &#123;
-        int len &#x3D; operand.length();
-        int[] num &#x3D; new int[len];
-        for (int i &#x3D; 0; i &lt; len; i++)
-            &#x2F;&#x2F;将string反转后转化为int数组
-            num[i] &#x3D; operand.charAt(len-1-i) - &#39;0&#39;;
-        int bit &#x3D; 0x0;
-        int carry &#x3D; 0x1;
-        &#x2F;&#x2F;char数组存放加一后的结果
-        char[] res &#x3D; new char[len];
-        for (int i &#x3D; 0; i &lt; len; i++) &#123;
-            &#x2F;&#x2F;异或，相同为0，不同为1
-            bit &#x3D; num[i] ^ carry;
-            &#x2F;&#x2F;设置下一位carry，都为1时carry才是1
-            carry &#x3D; num[i] &amp; carry;
-            &#x2F;&#x2F;显示转化为char
-            res[i] &#x3D; (char) (&#39;0&#39; + bit);
-        &#125;
-        &#x2F;&#x2F;反转得到结果
-        String result &#x3D; (new StringBuilder(String.valueOf(res))).reverse().toString();
-        &#x2F;&#x2F;注意有进位不等于溢出，溢出要另外判断
-        &#x2F;&#x2F;一般来说只有2^&#123;n-1&#125;-1会溢出
-        if(operand.charAt(0)&#x3D;&#x3D;&#39;0&#39;&amp;&amp;result.charAt(0)&#x3D;&#x3D;&#39;1&#39;)
-            &#x2F;&#x2F;表示有溢出
-            throw new ArithmeticException(&quot;overflow&quot;);
-        else
-            return result;
-    &#125;
-
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>位长度拓展：在左边添加需要拓展长度的符号位</li>
-<li>上溢规则：当两个同符号数相加，符号位发生改变时发生上溢</li>
+</li>
 </ul>
+</li>
+<li><p>上溢规则：当两个同符号数相加，符号位发生改变时发生上溢</p>
 </li>
 <li><p>2的补码</p>
-</li>
-</ul>
 <script type="math/tex; mode=display">
 A=-2^{n-1}a_{n-1}+\Sigma_{i=0}^{n-2}2^ia_i</script></li>
 </ul>
-<ul>
-<li>intToBinary</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * Integer to binaryString
- *
- * @param numStr to be converted
- * @return result
- *&#x2F;
- public String intToBinary(String numStr) &#123;
-        &#x2F;&#x2F;TODO: 将整数字面值（十进制表示）转化成补码表示的二进制，默认长度32位
-        &#x2F;&#x2F;整数的范围是-2^31到2^31-1,即-2147483648-2147483647
-        int num &#x3D; Integer.parseInt(numStr);&#x2F;&#x2F;String-&gt;int
-        assert num&gt;&#x3D;-2147483648&amp;&amp;num&lt;&#x3D;2147483647;
-        &#x2F;&#x2F; 0单独判断
-        if (num &#x3D;&#x3D; 0) 
-            return &quot;00000000000000000000000000000000&quot;;
-        
-     boolean isNeg &#x3D; false;
-
-        if (num &lt; 0) &#123;  &#x2F;&#x2F;负数转正数
-            num &#x3D; -num;
-            isNeg &#x3D; true;
-        &#125;
-        &#x2F;&#x2F;StringBuilder用于构建String对象，速度更快
-        StringBuilder temp &#x3D; new StringBuilder();
-        while (num &gt; 0) &#123;  &#x2F;&#x2F;转为二进制
-            if (num % 2 &#x3D;&#x3D; 1) temp.append(&quot;1&quot;);
-            else temp.append(&quot;0&quot;);
-            num &#x2F;&#x3D; 2;
-        &#125;
-        &#x2F;&#x2F;temp与实际的二进制相反，因此需要翻转
-        String ans &#x3D; temp.reverse().toString();
-        int len &#x3D; ans.length();
-        &#x2F;&#x2F;补全为32位
-        for (int i &#x3D; 0; i &lt; 32 - len; i++)
-            ans &#x3D; &quot;0&quot; + ans;
-        if (isNeg) &#123;
-            &#x2F;&#x2F;如果是负数那么取反加一
-            &#x2F;&#x2F;这里是32位的取反和加一
-            ans &#x3D; oneAdder(negation(ans));
-        &#125;
-        return ans;
- &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>binaryToInt</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * BinaryString to Integer
- *
- * @param binStr : Binary string in 2&#39;s complement
- * @return :result
- *&#x2F;
-public String binaryToInt(String binStr) &#123;
-    &#x2F;&#x2F;TODO: 将补码表示的二进制转化成整数字面值（十进制表示）
-    StringBuilder temp&#x3D;new StringBuilder(binStr);
-    &#x2F;&#x2F;反转
-    temp&#x3D;temp.reverse();
-    int length&#x3D;temp.length();
-    &#x2F;&#x2F;转为int数组
-    int []bin&#x3D;new int[length];
-    for(int i&#x3D;0;i&lt;length;i++)
-        bin[i]&#x3D;temp.charAt(i)-&#39;0&#39;;
-    &#x2F;&#x2F;A&#x3D;-2^&#123;n-1&#125;a&#123;n-1&#125;+\Sigma
-    int sum&#x3D;0;
-    int flag&#x3D;1;
-    for(int i&#x3D;0;i&lt;length-1;i++)
-    &#123;
-        sum+&#x3D;bin[i]*flag;
-        flag*&#x3D;2;
-    &#125;
-    sum+&#x3D;bin[length-1]*(-flag);
-    String result&#x3D;String.valueOf(sum);
-    return result;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3><span id="浮点数表示">浮点数表示</span></h3><ul>
 <li><p>科学计数法</p>
 <script type="math/tex; mode=display">
@@ -1042,161 +908,6 @@ public String binaryToInt(String binStr) &#123;
 </ul>
 </li>
 </ul>
-<p>floatToBinary</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * Float true value to binaryString
- * @param floatStr : The string of the float true value
- * *&#x2F;
-public String floatToBinary(String floatStr) &#123;
-    &#x2F;&#x2F;TODO: 将浮点数字面值转化成32位单精度浮点数表示
-    &#x2F;&#x2F;- 负数以&quot;-&quot;开头，正数不需要正号
-    &#x2F;&#x2F;- 考虑正负无穷的溢出（&quot;+Inf&quot;, &quot;-Inf&quot;）
-    int eLength &#x3D; 8;
-    int sLength &#x3D; 23;
-    
-    &#x2F;&#x2F;转为浮点值
-    float d &#x3D; Float.valueOf(floatStr);
-    boolean isNeg&#x3D;false;
-
-    &#x2F;&#x2F;包含了负数和-0的情况
-    if(floatStr.charAt(0)&#x3D;&#x3D;&#39;-&#39;)
-        isNeg&#x3D;true;
-
-    &#x2F;&#x2F;FLOAT中的方法，判断数字是否为Nan
-    if (Float.isNaN(d)) &#123;
-        return &quot;Nan&quot;;
-    &#125;
-    if(Float.isInfinite(d))
-    &#123;
-        if(isNeg)
-            return &quot;-Inf&quot;;
-        else
-            return &quot;+Inf&quot;;
-    &#125;
-
-    StringBuilder answer &#x3D; new StringBuilder(1+eLength+sLength);
-
-    if(isNeg)
-        answer.append(&quot;1&quot;);  &#x2F;&#x2F;value is negative, so append sign info
-    else
-        answer.append(&quot;0&quot;);
-
-    &#x2F;&#x2F;+0.0&#x3D;-0.0
-    if(d &#x3D;&#x3D; 0.0)
-    &#123;
-        for(int i&#x3D;0;i&lt;eLength+sLength;i++)&#123;  &#x2F;&#x2F;zero representation
-            answer.append(&quot;0&quot;);
-        &#125;
-        return answer.toString();
-    &#125;
-     else
-     &#123;
-         &#x2F;&#x2F;取绝对值
-        d &#x3D; Math.abs(d);
-        &#x2F;&#x2F;如果比最小规格数还小，那就以非规格数的形式表示
-        boolean subnormal &#x3D; (d &lt; minNormal());
-
-        if(subnormal)&#123;
-            &#x2F;&#x2F;指数位全为0
-            for(int i&#x3D;0;i&lt;eLength;i++)&#123;
-                answer.append(&quot;0&quot;);
-            &#125;
-            d &#x3D; d * (float)Math.pow(2, 126);  &#x2F;&#x2F;将指数消去
-            &#x2F;&#x2F; d &#x3D; 0.xxxxx
-            answer.append(fixPoint(d, sLength));
-        &#125;
-        else
-            &#123;
-                &#x2F;&#x2F;标准形式
-            int exponent &#x3D; (int)getExponent(d);
-            String exponentStr&#x3D;String.valueOf(exponent+127);
-            &#x2F;&#x2F;增加指数位
-            answer.append(intToBinary(exponentStr).substring(24));
-
-            d &#x3D; d &#x2F; (float)Math.pow(2, exponent);
-            &#x2F;&#x2F; d &#x3D; 1.xxxxx
-            answer.append(fixPoint(d-1, sLength));  &#x2F;&#x2F;fixPoint传入的参数要求小于1，自动忽略了隐藏位
-        &#125;
-    &#125;
-    return answer.toString();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>BinaryToFloat:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * Binary code to its float true value
- * *&#x2F;
-public String binaryToFloat(String binStr) &#123;
-    &#x2F;&#x2F;TODO: 将32位单精度浮点数表示转化成浮点数字面值
-    float result&#x3D;0;
-    boolean isNeg;
-    if(binStr.charAt(0)&#x3D;&#x3D;&#39;1&#39;)
-        isNeg&#x3D;true;
-    else
-        isNeg&#x3D;false;
-    String eStr&#x3D;binStr.substring(1,9);
-    String sStr&#x3D;binStr.substring(9);
-    &#x2F;&#x2F;首先判断0的情况
-    if((!eStr.contains(&quot;1&quot;))&amp;&amp;(!sStr.contains(&quot;1&quot;)))
-        &#x2F;&#x2F;有效数和指数都是0
-        return &quot;0.0&quot;;
-    &#x2F;&#x2F;然后判断正无穷与负无穷
-    &#x2F;&#x2F;指数位没有0，有效数位没有1
-    else if((!eStr.contains(&quot;0&quot;))&amp;&amp;(!sStr.contains(&quot;1&quot;)))
-    &#123;
-        if(isNeg)
-            return &quot;-Inf&quot;;
-        else
-            return &quot;+Inf&quot;;
-    &#125;
-    &#x2F;&#x2F;判断Nan的情况
-    &#x2F;&#x2F;指数全为1，并且有效数位含有1
-    else if((!eStr.contains(&quot;0&quot;))&amp;&amp;(sStr.contains(&quot;1&quot;)))
-        return &quot;Nan&quot;;
-
-    &#x2F;&#x2F;非标准情况
-    &#x2F;&#x2F;指数全为0，有效位有1，此时指数偏移-126
-    else if((!eStr.contains(&quot;1&quot;)&amp;&amp;(sStr.contains(&quot;1&quot;))))
-    &#123;
-        int len&#x3D;sStr.length();
-        int []temp&#x3D;new int[len];
-        &#x2F;&#x2F;转为int数组
-        for(int i&#x3D;0;i&lt;len;i++)
-        &#123;
-            temp[i]&#x3D;sStr.charAt(i)-&#39;0&#39;;
-        &#125;
-        float flag&#x3D;(float)Math.pow(2,-1);
-        for(int i&#x3D;0;i&lt;len;i++)
-        &#123;
-            result&#x3D;result+flag*temp[i];
-            flag&#x3D;flag*(float)Math.pow(2,-1);
-        &#125;
-        result&#x3D;result*(float)Math.pow(2,-126);
-    &#125;
-
-    &#x2F;&#x2F;标准形式
-    else &#123;
-        &#x2F;&#x2F;不超过8位，原码
-        int exponent &#x3D; Integer.parseInt(binaryToInt(&quot;0&quot;+eStr)) - 127;
-        int len &#x3D; sStr.length();
-        int[] temp &#x3D; new int[len];
-        &#x2F;&#x2F;转为int数组
-        for (int i &#x3D; 0; i &lt; len; i++) &#123;
-            temp[i] &#x3D; sStr.charAt(i) - &#39;0&#39;;
-        &#125;
-        float flag &#x3D; (float) Math.pow(2, -1);
-        for (int i &#x3D; 0; i &lt; len; i++) &#123;
-            result &#x3D; result + flag * temp[i];
-            flag &#x3D; flag * (float) Math.pow(2, -1);
-        &#125;
-        &#x2F;&#x2F;1.xxxx
-        result &#x3D; result + 1;
-        result &#x3D; result * (float) Math.pow(2, exponent);
-    &#125;
-
-    &#x2F;&#x2F;加上负号
-    if(isNeg)
-        result&#x3D;-result;
-    return String.valueOf(result);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3><span id="十进制表示法">十进制表示法</span></h3><p>​    用四位Binary-Coded Decimal表示0,1,2,3,4……9，直接运算</p>
 <script type="math/tex; mode=display">
 0:0000 \\
@@ -1208,75 +919,7 @@ public String binaryToFloat(String binStr) &#123;
 负：1101/1</script><p>Example：</p>
 <script type="math/tex; mode=display">
 +2039: 1100 \ 0010\  0000\  0011\  1001 / 0\  0010\  0000\  0011\  1001 \\
--1265: 1101\  0001\  0010\  0110\  0101 / 1\  0001\  0010\  0110\  0101</script><p>decimialToBinary:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * The decimal number to its NBCD code
- * *&#x2F;
-public String decimalToNBCD(String decimal) &#123;
-    &#x2F;&#x2F;TODO: 将十进制整数的字面值转化成NBCD表示（符号位用4位表示）
-    boolean isNeg&#x3D;false;
-    if(decimal.charAt(0)&#x3D;&#x3D;&#39;-&#39;)
-    &#123;
-        &#x2F;&#x2F;如果是负数
-        isNeg&#x3D;true;
-        decimal&#x3D;decimal.substring(1);
-    &#125;
-    &#x2F;&#x2F;deciaml现在是绝对值
-    int length&#x3D;decimal.length();
-    StringBuilder temp&#x3D;new StringBuilder(length*4+4);
-    if(isNeg)
-        temp.append(&quot;1101&quot;);
-    else
-        temp.append(&quot;1100&quot;);
-
-    &#x2F;&#x2F;返回32位，即length&lt;8时要补0
-    for (int i&#x3D;0;i&lt;7-length;i++)
-    &#123;
-        temp.append(&quot;0000&quot;);
-    &#125;
-    for (int i&#x3D;0;i&lt;length;i++)
-    &#123;
-        int num&#x3D;Integer.parseInt(&quot;&quot;+decimal.charAt(i));
-        &#x2F;&#x2F;num是0-9的数字
-        StringBuilder numStr&#x3D;new StringBuilder(4);
-        for (int j&#x3D;0;j&lt;4;j++)
-        &#123;
-            numStr.append(num%2);
-            num&#x3D;num&#x2F;2;
-        &#125;
-        numStr&#x3D;numStr.reverse();
-        temp.append(numStr);
-    &#125;
-    String result&#x3D;temp.toString();
-    return result;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>binaryTodecimial:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * NBCD code to its decimal number
- * *&#x2F;
-public String NBCDToDecimal(String NBCDStr) &#123;
-    &#x2F;&#x2F;TODO: 将NBCD表示（符号位用4位表示）转化成十进制整数的字面值
-    int length&#x3D;NBCDStr.length()&#x2F;4;
-    boolean isNeg&#x3D;false;
-    if(NBCDStr.startsWith(&quot;1101&quot;))
-        &#x2F;&#x2F;是负数
-        isNeg&#x3D;true;
-    int [] temp&#x3D;new int[length-1];
-    for(int i&#x3D;0;i&lt;length-1;i++)
-    &#123;
-        String numStr&#x3D;NBCDStr.substring(4*(i+1),4*(i+2));
-        temp[i]&#x3D;Integer.parseInt(binaryToInt(&quot;0&quot;+numStr));
-    &#125;
-    int sum&#x3D;0;
-    for(int i&#x3D;0;i&lt;length-1;i++)
-    &#123;
-        sum&#x3D;sum*10+temp[i];
-    &#125;
-    if(isNeg)
-        sum&#x3D;-sum;
-    return String.valueOf(sum);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3><span id="整数运算以补码表示为标准">整数运算（以补码表示为标准）</span></h3><ul>
+-1265: 1101\  0001\  0010\  0110\  0101 / 1\  0001\  0010\  0110\  0101</script><h3><span id="整数运算以补码表示为标准">整数运算（以补码表示为标准）</span></h3><ul>
 <li><p>取负</p>
 <ol>
 <li>将整数的每一位取反</li>
@@ -1395,19 +1038,6 @@ public String NBCDToDecimal(String NBCDStr) &#123;
 <script type="math/tex; mode=display">
 S_i=A_i⊕B_i⊕C_{i-1} \\
 C_i=A_iB_i+C_{i-1}(A_i+B_i) \\</script><p>第二个表达式也可用一个异或门来代替或门对其中两个输入信号进行求和</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
- * the 2 bits&#39; full adder
- *
- * @param x first char
- * @param y second char
- * @param c carry from the former bit
- * @return result after adding, the first position means the carry to the next and second means the result in this position
- *&#x2F;
-private String fullAdder(char x, char y, char c) &#123;
-    int bit &#x3D; (x - &#39;0&#39;) ^ (y - &#39;0&#39;) ^ (c - &#39;0&#39;);  &#x2F;&#x2F;三位异或
-    int carry &#x3D; ((x - &#39;0&#39;) &amp; (y - &#39;0&#39;)) | ((y - &#39;0&#39;) &amp; (c - &#39;0&#39;)) | ((x - &#39;0&#39;) &amp; (c - &#39;0&#39;));  &#x2F;&#x2F;有两位为1则产生进位
-    return &quot;&quot; + carry + bit;  &#x2F;&#x2F;第一个空串让后面的加法都变为字符串加法
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p>乘法</p>
 <ul>
