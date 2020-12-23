@@ -6,7 +6,7 @@
   <link href="http://chenzihong.com/atom.xml" rel="self"/>
   
   <link href="http://chenzihong.com/"/>
-  <updated>2020-12-22T03:16:20.371Z</updated>
+  <updated>2020-12-23T00:51:47.637Z</updated>
   <id>http://chenzihong.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://chenzihong.com/2020/12/19/Economic%20Principles/"/>
     <id>http://chenzihong.com/2020/12/19/Economic%20Principles/</id>
     <published>2020-12-19T10:54:56.000Z</published>
-    <updated>2020-12-22T03:16:20.371Z</updated>
+    <updated>2020-12-23T00:51:47.637Z</updated>
     
     <content type="html"><![CDATA[<p>宏观经济学可以解释这些问题：</p><ol><li>为什么一些国家平均收入高，而一些国家平均收入低？</li><li>为什么物价有时候上涨迅速，有时候比较稳定？</li><li>为什么生产和就业在一些时候扩张，在另一些时候收缩？</li></ol><h2><span id="一国收入的衡量">一国收入的衡量</span></h2><p>国内生产总值，即GDP，被认为是衡量社会经济福利最好的一个指标。</p><h3><span id="经济的收入与支出">经济的收入与支出</span></h3><p>当你判断一个人在经济上是否成功的时候，你会看他的收入。同样的道理适用于一个国家的整体经济。当判断一个国家是富裕还是贫穷的时候，会考察经济中所有人的总收入，这就是<strong>国内生产总值</strong>。</p><blockquote><p>GDP同时衡量两件事：经济中所有人的总收入和用于经济中物品与服务产出的总支出。</p><p>因为对于一个整体经济而言，收入必定等于支出。</p></blockquote><h3><span id="国内生产总值的衡量">国内生产总值的衡量</span></h3><blockquote><p>定义：</p><p><strong>国内生产总值</strong>，GDP，在某一既定时期一个国家内生产的所有最终物品与服务的市场价值。</p></blockquote><ul><li>所谓“市场价值”：GDP要把许多种不同的物品加总为一个经济活动价值的衡量指标，为了这样做，它使用了市场价格。市场价格衡量人们愿意为各种不同物品支付的量，市场价格反映了这些物品的市场价值。</li><li>所谓“所有”：GDP是全面的衡量指标。它包括在经济中生产并在市场中合法出售的所有东西。但是GDP不包括非法生产和销售的东西，比如毒品。GDP也不包括家庭内生产和消费并且没有进入市场的东西。</li><li>所谓“最终”：GDP只包括最终产品的价值，因为中间物品的价值已经包括在最终物品的价格中了。</li><li>所谓“物品与服务”：GDP既包括有形的物品，又包括无形的服务</li><li>所谓“生产的”：GDP不包括已经生产的物品的交易。比如当一个人把一辆二手车出售给另一个人，那么这辆车的价值不包括在GDP里面。</li><li>所谓“在某一特定时期”：这个时期一般是一个季度或者一年。</li></ul><h3><span id="gdp的组成部分">GDP的组成部分</span></h3><p>GDP（Y）被分为4个部分：消费（C）、投资（I）、政府购买（G）、净出口（NX）。</p><script type="math/tex; mode=display">Y=C+I+G+NX</script><ol><li><p>消费</p><p><strong>消费</strong>是家庭除了购买新住房之外用于物品和服务的支出。</p><p>家庭用于教育的支出也包括在服务里面。</p></li><li><p>投资</p><p><strong>投资</strong>是用于未来生产更多物品和服务的物品的购买。</p><p>它是资本设备、存货和建筑物购买的总和。</p><p>所以住房的购买不是属于消费而是属于投资。</p></li><li><p>政府购买</p><p>政府购买是政府用于物品与服务的支出。</p><p>如果政府向老年人支付社会保障补助，或者向失业的人支付补助，这些支出叫做<strong>转移支付</strong>，不包括在政府购买之中。因为转移支付改变了家庭收入，但是并不反映生产与消费水平。</p></li><li><p>净出口</p><p><strong>净出口</strong>等同于外国对国内生产的物品的购买减去国内对于外国物品的购买。</p></li></ol><h3><span id="真实gdp与名义gdp">真实GDP与名义GDP</span></h3><p>随着时间的变化，市场中物品的价格会有波动。如果想要衡量不受物品和服务价格变动影响所生产的物品与服务的总量，可以引入<strong>真实GDP</strong>。</p><p>一个例子：</p><div class="table-container"><table><thead><tr><th>年份</th><th>热狗价格</th><th>热狗产量</th><th>汉堡包价格</th><th>汉堡包产量</th></tr></thead><tbody><tr><td>2013</td><td>1</td><td>100</td><td>2</td><td>50</td></tr><tr><td>2014</td><td>2</td><td>150</td><td>3</td><td>100</td></tr><tr><td>2015</td><td>3</td><td>200</td><td>4</td><td>150</td></tr></tbody></table></div><p>名义GDP：</p><div class="table-container"><table><thead><tr><th>年份</th><th>GDP</th></tr></thead><tbody><tr><td>2013</td><td>200</td></tr><tr><td>2014</td><td>600</td></tr><tr><td>2015</td><td>1200</td></tr></tbody></table></div><p>真实GDP（以2013年为基年）：</p><div class="table-container"><table><thead><tr><th>年份</th><th>GDP</th></tr></thead><tbody><tr><td>2013</td><td>200</td></tr><tr><td>2014</td><td>350</td></tr><tr><td>2015</td><td>500</td></tr></tbody></table></div><blockquote><p>真实GDP是按不变价格评价的物品与服务的生产。</p><p>计算真实GDP的时候，通常会指定一年作为基年，然后用这年的物品与服务的价格计算GDP。</p></blockquote><p>名义GDP是用当年价格来评价经济中物品与服务生产的价值。</p><p>真实GDP是用不变的基年价格来评价经济中物品与服务生产的价值。</p><p>a</p><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
     
@@ -42,7 +42,7 @@
     <category term="Economics" scheme="http://chenzihong.com/categories/Economics/"/>
     
     
-    <category term="Economics - Macroeconomics" scheme="http://chenzihong.com/tags/Economics-Macroeconomics/"/>
+    <category term="Macroeconomics" scheme="http://chenzihong.com/tags/Macroeconomics/"/>
     
   </entry>
   
