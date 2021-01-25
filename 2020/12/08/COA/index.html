@@ -610,7 +610,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.7k
+                    5.9k
                 </div>
                 
 
@@ -802,7 +802,9 @@ R_H=\frac{m}{\Sigma_{i=1}^mR_i}</script></li>
 <li>依顺序的形式从一条指令到下一条指令</li>
 </ol>
 <ul>
-<li>CPU</li>
+<li><p>CPU</p>
+<p>CPU负责与存储器之间交换数据，一般使用两个内部寄存器：一个是存储地址寄存器（MAR），为下一次读或写制定内存地址；另一个是存储缓冲寄存器（MBR），容纳写到内存或者从内存接收的数据。</p>
+</li>
 </ul>
 <blockquote>
 <p>问题：</p>
@@ -899,6 +901,9 @@ A=\Sigma_{i=0}^{n-1}2^ia_i</script><ul>
 <li><p>2的补码</p>
 <script type="math/tex; mode=display">
 A=-2^{n-1}a_{n-1}+\Sigma_{i=0}^{n-2}2^ia_i</script></li>
+<li><p>补码整数拓展规则</p>
+<p>移动符号位到新的最左位，其余空出位均以符号位的副本填充。</p>
+</li>
 </ul>
 <h3><span id="浮点数表示">浮点数表示</span></h3><ul>
 <li><p>科学计数法</p>
@@ -947,7 +952,10 @@ A=-2^{n-1}a_{n-1}+\Sigma_{i=0}^{n-2}2^ia_i</script></li>
 负：1101/1</script><p>Example：</p>
 <script type="math/tex; mode=display">
 +2039: 1100 \ 0010\  0000\  0011\  1001 / 0\  0010\  0000\  0011\  1001 \\
--1265: 1101\  0001\  0010\  0110\  0101 / 1\  0001\  0010\  0110\  0101</script><h3><span id="整数运算以补码表示为标准">整数运算（以补码表示为标准）</span></h3><ul>
+-1265: 1101\  0001\  0010\  0110\  0101 / 1\  0001\  0010\  0110\  0101</script><h3><span id="全加器">全加器</span></h3><p>运算X+Y</p>
+<script type="math/tex; mode=display">
+S_i=X_i+Y_i+C{i-1} \\
+C_i=X_iC{i-1}+Y_iC_{i-1}+X_iY_i</script><h3><span id="整数运算以补码表示为标准">整数运算（以补码表示为标准）</span></h3><ul>
 <li><p>取负</p>
 <ol>
 <li>将整数的每一位取反</li>
